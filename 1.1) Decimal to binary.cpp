@@ -1,8 +1,7 @@
-#include<iostream>
 #include<cmath>
 using namespace std;
 
-int ReversedBinary(int n)
+int binary(int n)
 {
     int remainder;
     int ans = 0;
@@ -11,24 +10,22 @@ int ReversedBinary(int n)
         ans = ans*10 + remainder;
         n=n/2;
     }
+    int c = ans;
+    int Reverse = 0;
+    while(c>0){
+        int lastdigit = c%10;
+        Reverse = Reverse * 10 + lastdigit;
+        c=c/10;
+    }
 
-    return ans;
+    return Reverse;
 }
 int main()
 {
-    int a, b;
+    int a;
     cout<<"Enter your Decimal number: ";
     cin>>a;
-    b=ReversedBinary(a);
-    int Reverse = 0;
-    while(b>0){
-        int lastdigit = b%10;
-        Reverse = Reverse * 10 + lastdigit;
-        b=b/10;
-    }
-
-    cout<<"The binary value of "<<a<<" is: "<<Reverse;
+    cout<<"The binary value of "<<a<<" is: "<<binary(a);
 
     return 0;
 }
-
